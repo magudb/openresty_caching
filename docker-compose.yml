@@ -1,0 +1,19 @@
+web:
+    image: openresty/openresty:alpine-fat
+    ports:
+        - "8080:80"
+    volumes:
+        - ./code:/code
+        - ./nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf
+        - ./site.conf:/usr/local/openresty/nginx/sites/site.conf
+    links:
+        - php
+        - redis
+php:
+    image: php:7-fpm
+    volumes:
+        - ./code:/code
+redis:
+    image: redis:alpine
+    ports:
+        - "6379:6379"
