@@ -1,28 +1,30 @@
-# Prereq: # 
+# Prerequisites # 
 * Docker + docker-compose
 * redis-cli 
+* https://github.com/openresty/srcache-nginx-module#installation (This is part of OpenResty Docker)
 
 # Run #
-* `$> docker-compose up`
+* `$ docker-compose up`
 
 
-# See Caching #
-
+# Caching #
+**Show the empty cache keys**
 ```
 $ redis-cli
 127.0.0.1:6379> keys *
 (empty list or set)
 ```
 
-## Open browser at http://localhost8080 ##
+### Open browser at http://localhost8080 ###
 
+**Show the cache keys**
 ```
 $ redis-cli
 127.0.0.1:6379> keys *
 1) "localhost/index.php"
 ```
 
-## [To flush cache](http://blog.code4hire.com/2016/09/deleting-keys-with-wildcards-in-redis/) ##
+## [To flush cache](http://blog.code4hire.com/2016/09/deleting-keys-with-wildcards-in-redis/) ###
 
 ```
 $ redis-cli
